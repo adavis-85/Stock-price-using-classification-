@@ -1,6 +1,6 @@
 # Stock-price-using-classification-
 
-       In this project I analysed the activity of Tesla stock (TSLA) over the last year.  The stock is arranged by the date,
+   In this project I analysed the activity of Tesla stock (TSLA) over the last year.  The stock is arranged by the date,
   opening price, highest price of the day, lowest price of the day, the closing price,the adjusted closing price of the day 
   adjusted for the activity of the day at closing and also the volume traded.  For our purposes we will not need the specific 
   date and the adjusted closing prices.  I will demonstrate how to use logistic regression and also linear discriminant analysis
@@ -22,7 +22,9 @@
 10 2019-02-19  307.  312.  305.  306.        306. 4168400
 
 ```
+
 First a variable is needed by which to classify increasing and decreasing activity.  We will call this Direction.
+
 ```
 Direction=rep(0,length(Close))
 summary(Direction)
@@ -41,12 +43,15 @@ T=data.frame(Direction,TSLA)
 ```
 Now the correlation between the variablers can be seen and the best ones can be chosen for our models.
 The data set needs to be split up into a training and testing set.
+
 ```
 Tesla.test=T[!train,]
 dim(Tesla.test)
 Direction.test=Direction[!train]
 ```
-  Then we try out a logistic regression.
+
+Then we try out a logistic regression.
+  
   ```
 glm.fits=glm(Direction~Open+High+Low+Close+Volume,data=T,family=binomial,subset=train)
 glm.probs=predict(glm.fits,Tesla.test,type="response")
@@ -84,7 +89,7 @@ lda.class  0  1
 mean(lda.class==Direction.test)
 0.7777778
  ```
-    So the accuracy rate for the linear discriminant analysis model is a little less accurate but this does qualify in a way
+   So the accuracy rate for the linear discriminant analysis model is a little less accurate but this does qualify in a way
 that the logistic regression was done correctly and that the activity does follow our models over the variables we have 
 selected.  
     The next step is to use a quadratic discriminant analysis model to again find if the accuracy rate is better or worse 
@@ -102,7 +107,7 @@ qda.class  0  1
 mean(qda.class==Direction.test)
 0.7592593
 ```
-    The accuracy is a little less accurate.  The linear discriminant analysis can be used for the actual activity of the 
+   The accuracy is a little less accurate.  The linear discriminant analysis can be used for the actual activity of the 
 stock for today.
 
 ```
@@ -124,7 +129,7 @@ $x
         LD1
 1 -8.715686
 ```
-    The activity was predicted to be decreasing for today.  This was proven true as of closing of the market today
+   The activity was predicted to be decreasing for today.  This was proven true as of closing of the market today
  Tesla stock was down 152.36 points or of a total value of 17.18% of the day before.  These models only predict what the 
  stock will do based off of the previous days prices hit and also the volume traded.  The date also could play a part such
  as if a new car(or truck) is unveiled or production starts or is finished on a current model.  All of these variables could 
