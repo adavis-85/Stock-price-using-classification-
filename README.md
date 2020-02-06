@@ -144,6 +144,7 @@ predicted to close down as did the linear discriminant analysis model.
  Tesla stock was down 152.36 points or of a total value of 17.18% of the day before.  These models only predict what the 
  stock will do based off of the previous days prices hit and also the volume traded.  The date also could play a part such
  as if a new car(or truck) is unveiled or production starts or is finished on a current model.  All of these variables could 
- be taken into account as well as past history into building a reliable forecast to either buy or sell.
+ be taken into account as well as past history into building a reliable forecast to either buy or sell.  A way to use this example
+ would be a to have a live price tracker and volume traded tracker to be able to predict activity in real time.
 
     
