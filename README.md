@@ -41,7 +41,7 @@ The Direction column needs to be a part of the Tesla dataset so a new dataframe 
 ```
 T=data.frame(Direction,TSLA)
 ```
-Now the correlation between the variablers can be seen and the best ones can be chosen for our models.
+Now the correlation between the variables can be seen and the best ones can be chosen for our models.
 The data set needs to be split up into a training and testing set.
 
 ```
@@ -129,6 +129,17 @@ $x
         LD1
 1 -8.715686
 ```
+Also for the logistic regression we can use the same entry for the previous day knowing today closed at a lesser
+value than the day before
+
+```
+algorithm=predict(glm.fits,newdata=data.frame(Open=b[1],High=b[2],Low=b[3],Close=b[4],Volume=b[5]),type="response")
+
+1 
+1.259538e-07 
+```
+We can see that the probablity that a one was predicted is pretty close to zero which would mean that today was also
+predicted to close down as did the linear discriminant analysis model.
    The activity was predicted to be decreasing for today.  This was proven true as of closing of the market today
  Tesla stock was down 152.36 points or of a total value of 17.18% of the day before.  These models only predict what the 
  stock will do based off of the previous days prices hit and also the volume traded.  The date also could play a part such
