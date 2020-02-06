@@ -1,4 +1,4 @@
-# Stock-price-using-classification-
+# Stock price using classification
 
    In this project I analysed the activity of Tesla stock (TSLA) over the last year.  The stock is arranged by the date,
   opening price, highest price of the day, lowest price of the day, the closing price,the adjusted closing price of the day 
