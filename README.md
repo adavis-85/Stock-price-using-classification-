@@ -192,4 +192,4 @@ guess2$class
 
 [1] 0
 ```
-   Guess1 was predicted correctly.  Guess2 was not predicted correctly but that is what happens when there is an error rate of 40% and an accuracy of 60%.  The Close column was also dropped.  This was because the model could be used for a real time prediction on about the same error rate on whatever time period is desired.  Here we used days but the model could be fitted on hours or minutes or seconds.  
+   Guess1 was predicted correctly.  Guess2 was not predicted correctly but that is what happens when there is an error rate of 40% and an accuracy of 60%.  The Close column was also dropped.  This was because the model could be used for a real time prediction on about the same error rate on whatever time period is desired.  In real time there won't have a Close price because the stock is in the process of being traded.  Here we used days but the model could be fitted on hours or minutes or seconds.  
