@@ -147,4 +147,49 @@ predicted to close down as did the linear discriminant analysis model.
  be taken into account as well as past history into building a reliable forecast to either buy or sell.  A way to use this example
  would be a to have a live price tracker and volume traded tracker to be able to predict activity in real time.
 
-    
+   When there is a vector which has a classification that states if the next day was up or down we can predict what the 
+next days activity will be.  Using linear discriminant analysis:
+```
+Next=rep(0,253)
+
+for (i in 1:253)
+{
+if(Close[i]<Close[i+1])
+{
+  Next[i]=1
+}
+}
+
+newT=data.frame(Next,TSLA)
+
+newT.test=newT[!train,]
+Next.test=Next[!train]
+
+lda.fits=lda(Next~Open+High+Volume,data=newT,subset=train)
+lda.pred=predict(lda.fit,newT.test)
+lda.class=lda.pred$class
+table(lda.class,Next.test)
+mean(lda.class==Next.test)
+```
+   This model used the same training and test set.  The matrix and accuracy percentage is:
+```
+       Next.test
+lda.class  0  1
+        0 10 13
+        1  9 22
+        
+[1] 0.5925926
+```
+   So the accuracy rate of going up or down for the next day is around 60%.  Testing on the information from two days ago and also today achieved the classification of:
+```
+guess1=predict(lda.fits,newdata=data.frame(Open=882.96,High=968.99,Volume=60775600),type="response")
+guess1$class
+
+[1] 0
+
+guess2=predict(lda.fits,newdata=data.frame(Open=823.26,High=845.98,Volume=37343093),type="response")
+guess2$class
+
+[1] 0
+```
+   Guess1 was predicted correctly.  Guess2 was not predicted correctly but that is what happens when there is an error rate of 40% and an accuracy of 60%.  The Close column was also dropped.  This was because the model could be used for a real time prediction on about the same error rate on whatever time period is desired.  Here we used days but the model could be fitted on hours or minutes or seconds.  
