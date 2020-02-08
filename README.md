@@ -146,7 +146,8 @@ The activity was predicted to be decreasing for today.  This was proven true as 
  stock will do based off of the previous days prices hit and also the volume traded.  The date also could play a part such
  as if a new car(or truck) is unveiled or production starts or is finished on a current model.  All of these variables could 
  be taken into account as well as past history into building a reliable forecast to either buy or sell.  A way to use this example
- would be a to have a live price tracker and volume traded tracker to be able to predict activity in real time.
+ would be a to have a live price tracker and volume traded tracker to be able to predict activity in real time.  The close variable 
+could be the present price and also the price that it was at the end of previous time period
 
    When there is a vector which has a classification that states if the next day was up or down we can predict what the 
 next days activity will be.  Using linear discriminant analysis:
