@@ -140,7 +140,8 @@ algorithm=predict(glm.fits,newdata=data.frame(Open=b[1],High=b[2],Low=b[3],Close
 ```
 We can see that the probablity that a one was predicted is pretty close to zero which would mean that today was also
 predicted to close down as did the linear discriminant analysis model.
-   The activity was predicted to be decreasing for today.  This was proven true as of closing of the market today
+   What these models can do is predict the day closing up or down without knowing the previous prices.  
+The activity was predicted to be decreasing for today.  This was proven true as of closing of the market today
  Tesla stock was down 152.36 points or of a total value of 17.18% of the day before.  These models only predict what the 
  stock will do based off of the previous days prices hit and also the volume traded.  The date also could play a part such
  as if a new car(or truck) is unveiled or production starts or is finished on a current model.  All of these variables could 
