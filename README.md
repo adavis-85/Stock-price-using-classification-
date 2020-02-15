@@ -72,7 +72,7 @@ mean(glm.pred==Direction.test)
 
 0.7962963
 ```
-This is not bad at all for a traded stock.  Now to test the linear discriminant analysis to see if the rate holds up.
+  Now to test the linear discriminant analysis to see if the rate holds up.
 ```
 library(MASS)
 
