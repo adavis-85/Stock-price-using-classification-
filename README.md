@@ -74,7 +74,6 @@ mean(glm.pred==Direction.test)
 ```
   Now to test the linear discriminant analysis to see if the rate holds up.
 ```
-library(MASS)
 
 lda.fit=lda(Direction~Open+High+Low+Close+Volume,data=T,subset=train)
 lda.pred=predict(lda.fit,Tesla.test)
